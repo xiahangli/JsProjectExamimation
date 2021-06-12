@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>实验考试</title>
+    <script>
+         //这里是调用android保存设备号的代码
+         function saveDeviceId(){
+             var deviceId = document.getElementById("setDeviceId");
+             var deviceIdText = deviceId.value;
+             //调用android对应的方法,对象名必须是mJs
+             mJs.saveDeviceId(deviceIdText);
+         }
+         //获取本地的deviceId
+         function getDeviceId(){
+            mJs.getDeviceId();
+         }
+
+         //getDeviceId的回调函数
+         function onDeviceId(result){
+             console.log("deivceId = " + result);
+         }
+
+    </script>
+</head>
+<body>
+<h1>DEMO 点击按钮则调用对应的函数,web调试已经开启,在chrome中输入chrome://inspect  点击inspect  查看deivceId设置的日志</h1>
+<br/>
+<input id="setDeviceId" placeholder="请输入设备号"  type="text" />
+<br/>
+<button type="button" id="set"  style="width:140px;height:30px" placeholder="设置" onclick="saveDeviceId()">设置DeviceId</button>
+<br/>
+<button type="button" id="get"  style="width:160px;height:43px"  onclick="getDeviceId()">获取DeviceId</button>
+
+</body>
+</html>
+
