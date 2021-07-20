@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Window;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
 import android.webkit.WebSettings;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         mWebView = (WebView) findViewById(R.id.webview);
         WebSettings webSettings = mWebView.getSettings();
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         //通过addJavascriptInterface() AJavaScriptInterface类对象映射到JS的mJs对象
         mWebView.addJavascriptInterface(new JSKit(),JS_METHOD);
         // 加载JS代码
-        mWebView.loadUrl("file:///android_asset/javascript.html");
+        mWebView.loadUrl("https://labexam.huipaiedu.com/camerapad/#/");
 
     }
 
